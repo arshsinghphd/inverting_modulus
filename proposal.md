@@ -38,7 +38,7 @@ The project will have many three parts, two involve creating python based functi
 #### Flask-Based App/Tutorial
 2. Functions for GUI to interact with the user outside of python code in two modes: verbose (show all the works) or not. There will be a function for randomly generated A and B if user does not have a problem in mind.
 
-#### Decoding Linear Ciphers using our Function
+#### Decoding Linear Ciphers (using our function)
 3. A use case of linear cipher decoding using our app.
 
 
