@@ -6,7 +6,7 @@ We create a function that estimates the multiplicative inverse of a modulus.
 
 It is accompanied by a video description of how we created the function.
 
-To make it more instructive, we also use our function to solve a rather fun, but elaborate problem from Fell, Harriet, and Javed A. Aslam. *Discrete Structures*. Cognella academic publishing, 2017. The solution is provided as a PDF work along, and also as a short video tutorial.
+To make it more instructive, we also use our function to solve a rather fun, but elaborate problem from Fell, Harriet, and Javed A. Aslam. *Discrete Structures*. Cognella academic publishing, 2017. The solution is provided as a PDF work along using out flask-based application.
 
 **Technical Aspects**
 * Finding multiplicative inverse of a modulus function is neither intutive nor is it straightforward. It requires understanding of many important underlying concepts.
