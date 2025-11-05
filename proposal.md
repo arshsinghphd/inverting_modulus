@@ -1,10 +1,10 @@
 ## Class Project Proposal 
 # Inverting Modulus and Decoding Linear Ciphers
 
-### Group Members 
+### Group Members (Northeastern Emails)
 (Last name lexicographical order)
-* Parker McKillop ()
-* Oksana Pooley ()
+* Parker McKillop (mckillop.p@northeastern.edu)
+* Oksana Pooley (pooley.o@northeastern.edu)
 * Arsh Singh (singh.a5@northeastern.edu)
 
 ### Category or Type of Project:
@@ -12,9 +12,18 @@
 * Topic Investigation and 
 * Educational Resource
 
-### Project Brief
+## Project Brief
 
+### Motivation
 
+### Goals
+
+### Timeline
+
+|Item | Date |
+| :- | :-: |
+|Proposal | Due Nov. 20th by 11:59pm EST|  
+| | |
 
 ---
 The project proposal should contain the following information:
