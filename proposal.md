@@ -21,7 +21,7 @@ We will also make a work along text tutorial that shows how to use our function 
 ### Motivation
 In this section, we answer the question why is this a good class project for CS5002.
 
-The main idea of the project is explore how to efficiently find multiplicative inverse of a mod function. Mathematically, to look for a multiplicative inverse of $A \mod B$ is to look for an integer $x$ such that $Ax = 1 \mod B.$ 
+The main idea of the project is explore how to efficiently find multiplicative inverse of a mod function. Mathematically, to look for a multiplicative inverse of $A \mod B$ is to look for an integer $x$ such that $Ax \equiv 1 \mod B.$ 
 
 We think this is a great class project because it is just beyond what has been taught to us, in other words it is an extension of the class. It is a difficult enough problem that does not solve very easily by hand or even calculators and needs one to implement a function. It is not a purely academic exercise and has uses in cryptography for encryption, decryption, and for sumcheck style integrety check on transmitted messages and  unpackaged computer softwares etc. Time-wise, the project of creating an app with the function as an engine is just-enough dificult that we will be able to do it well in two weeks' time. And most importantly, as a use case for this project we will solve a fun linear cipher puzzle (Exercise 5.7 Page 65 of Fell, Harriet, and Javed A. Aslam. *Discrete Structures*. Cognella academic publishing, 2017).
 
