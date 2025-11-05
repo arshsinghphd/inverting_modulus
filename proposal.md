@@ -14,6 +14,19 @@
 
 ## Project Brief
 
+The main idea of the project is based on finding multiplicative inverse of a mod function. 
+
+Mathematically, to look for a multiplicative inverse of $A \mod B$ is to look for an integer $x$ such that 
+
+$Ax = 1 \mod B.$
+
+More generally we are looking for a set of integers $X$ such that for each  
+
+$\{x \in X: Ax ≡ 1 \mod B\}.$
+
+
+The project will have two parts:
+
 ### Motivation
 
 ### Goals
