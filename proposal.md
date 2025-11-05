@@ -60,39 +60,50 @@ The project will have three parts, two involve creating python based functions a
 
 We expect the function to be able to produce well formatted equations to find the multiplicative inverse of $A\mod B$ such as the following, based any positive integers $A$ and $B$  provided to it. We expect it do it in $\log(n)$ time, where $n$ is the bigger number among $A$ and $B$ (usually $B$ if $A\mod B$ is in standard form).
 
+In the example below $A = 197$, $B = 2001$
+
 ```
+--------------------------------------------------------------------------------
+
 First Part: Euclidean Algorithm
 
 Euclidean algorithm gives us the following equations.
 
-2001 = 197 * 10 + 31 	... (1)
-197 = 31 * 6 + 11 	... (2)
-31 = 11 * 2 + 9 	... (3)
-11 = 9 * 1 + 2 	... (4)
-9 = 2 * 4 + 1 	... (5)
+2001 = 197 * 10 + 31                                                         (1)
+
+197 = 31 * 6 + 11                                                            (2)
+
+31 = 11 * 2 + 9                                                              (3)
+
+11 = 9 * 1 + 2                                                               (4)
+
+9 = 2 * 4 + 1                                                                (5)
+
 
 Second Part: Reversing
 
 Isolating 1 from (5)
-1 = 9 * 1 + 2 * -4 	... (6)
+1 = 9 * 1 + 2 * -4                                                           (6)
 
 Isolating 2 from (4) and putting in (6).
 Rearrange to keep as a linear combination of 11 and 9:
-1 = 11 * -4 + 9 * 5 	... (7)
+1 = 11 * -4 + 9 * 5                                                          (7)
 
 Isolating 9 from (3) and putting in (7).
 Rearrange to keep as a linear combination of 31 and 11:
-1 = 31 * 5 + 11 * -14 	... (8)
+1 = 31 * 5 + 11 * -14                                                        (8)
 
 Isolating 11 from (2) and putting in (8).
 Rearrange to keep as a linear combination of 197 and 31:
-1 = 197 * -14 + 31 * 89 	... (9)
+1 = 197 * -14 + 31 * 89                                                      (9)
 
 Isolating 31 from (1) and putting in (9).
 Rearrange to keep as a linear combination of 2001 and 197:
-1 = 2001 * 89 + 197 * -904 	... (10)
+1 = 2001 * 89 + 197 * -904                                                  (10)
 
-Because we want a positive multiplicative inverse
+Because we want a positive multiplicative inverse,
+the coefficient of 197 should be > 0.
+We can rearrange (10) in the following way.
 replace -904 with -904 + k * 2001, such that -904 + k * 2001 > 0.
 In this case, k = 1 and we replace -904 with 1097.
 Also find new coefficient of 2001 as 89 - k * 197 = -108, since k = 1
@@ -102,8 +113,9 @@ Finally:
 
 Bézout's coefficients are -108 and 1097.
 
-The multiplicative inverse of 197 mod 2001 is:
-1097
+The multiplicative inverse of 197 mod 2001 is 1097.
+
+--------------------------------------------------------------------------------
 ```
 
 ### References
