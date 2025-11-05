@@ -63,6 +63,15 @@ We expect the function to be able to produce well formatted equations to find th
 In the example below $A = 197$, $B = 2001$
 
 ```
+This application will help with the difficult task of finding
+the multiplicative inverse of A mod B.
+Please enter values of A and B with the following in mind:
+Enter only integers as values of A and B such that:
+	A > 1 and B > 1
+	and B > A.
+The application will handle other entires but returns None as response.
+Please enter A: 197
+Please enter B: 2001
 --------------------------------------------------------------------------------
 
 First Part: Euclidean Algorithm
@@ -109,7 +118,7 @@ In this case, k = 1 and we replace -904 with 1097.
 Also find new coefficient of 2001 as 89 - k * 197 = -108, since k = 1
 
 Finally:
-1 = 2001 * -108 + 197 * 1097	 ... (11).
+1 = 2001 * -108 + 197 * 1097                                                (11)
 
 Bézout's coefficients are -108 and 1097.
 
