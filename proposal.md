@@ -44,15 +44,16 @@ The project will have three parts, two involve creating python based functions a
 
 ### Timeline
 
-|Item | Due Date | Person |
+|Item | Due Date | Persons |
 | :- | :- | :- |
-|Proposal |Due Th, Nov. 20th, end of the day|One of us can email |  
 |Draft proposal |Due W, Nov 19th, end of day|Arsh, Oksana, Parker|
-|Writing and testing Functions | Nov 20 - 25| Arsh, Oksana, Parker working together on teams shared VS code|
-|Writing and testing GUI |Nov 26 - Dec 1 |Arsh, Oksana, Parker working together on teams shared VS code |
-|Use case | Dec 2 |Arsh, Oksana, Parker working together on teams shared VScode |
-|Use case | Dec 3-5 |Arsh, Oksana, Parker working together on teams shared VScode |
-|Project Report | Dec 6-7 |Arsh, Oksana, Parker different parts |
+|Proposal |Due Th, Nov. 20th, end of the day|One of us can email |
+|Writing and testing Functions | Nov 20 - 22| Some combination of Arsh, Oksana, Parker working together on shared VS code|
+|Writing and testing GUI |Nov 23 - Nov 26 |Some combination of Arsh, Oksana, Parker working together on teams shared VS code |
+|Thanksgiving weekend break |Nov 27 - 30 | |
+|Use case | Dec 1-2 |Some combination of Arsh, Oksana, Parker working together on teams shared VScode |
+|Project Write-up | Dec 3-5 |Some combination of Arsh, Oksana, Parker working together on teams shared VScode |
+|Video | Dec 6-7 |Some combination of Arsh, Oksana, Parker different parts |
 |Project | Dec 8 |One of us can email |
 
 ### Expected Outcome
@@ -104,7 +105,7 @@ Bézout's coefficients are -108 and 1097.
 The multiplicative inverse of 197 mod 2001 is:
 1097
 ```
----
+
 ### References
 
 Fell, Harriet, and Javed A. Aslam. *Discrete Structures*. Cognella academic publishing, 2017
