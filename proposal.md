@@ -20,18 +20,22 @@
 
 ### Timeline
 
-|Item | Date | Person |
+|Item | Due Date | Person |
 | :- | :- | :- |
-|Proposal |Due Th, Nov. 20th, end of the day| |  
-|Draft proposal |Due W, Nov 19th, end of day| |
-|Writing and tetsing Functions | | |
-|Writing and testing GUI | | |
-|Presentation Videos | | |
-|Work-along Tutorial Video | | |
-|Tutorial PDF | | |
+|Proposal |Due Th, Nov. 20th, end of the day|One of us can email |  
+|Draft proposal |Due W, Nov 19th, end of day|Arsh, Oksana, Parker|
+|Writing and testing Functions | | Arsh, Oksana, Parker working together on teams shared VS code|
+|Writing and testing GUI | |Arsh, Oksana, Parker working together on teams shared VS code |
+|Presentation Videos | |Arsh, Oksana, Parker different parts |
+|Work-along Tutorial Video | |Arsh, Oksana, Parker different parts |
+|Tutorial PDF | |Arsh, Oksana, Parker working together on teams shared VScode |
+|Project |  |One of us can email |
 
 ###
+
 ---
+### Project Proposal Guidelines For Reference
+
 The project proposal should contain the following information:
 
 * The name and Northeastern emails of all group members
