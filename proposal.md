@@ -20,11 +20,17 @@
 
 ### Timeline
 
-|Item | Date |
-| :- | :-: |
-|Proposal | Due Nov. 20th by 11:59pm EST|  
-| | |
+|Item | Date | Person |
+| :- | :- | :- |
+|Proposal |Due Th, Nov. 20th, end of the day| |  
+|Draft proposal |Due W, Nov 19th, end of day| |
+|Writing and tetsing Functions | | |
+|Writing and testing GUI | | |
+|Presentation Videos | | |
+|Work-along Tutorial Video | | |
+|Tutorial PDF | | |
 
+###
 ---
 The project proposal should contain the following information:
 
