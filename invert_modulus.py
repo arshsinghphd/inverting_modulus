@@ -3,12 +3,15 @@
 Functions and Their Description
 -------------------------------
 find_mod_inverse
-    This function takes two positive integers A and B and a bool verbose.
+    This function takes two positive integers A and B and two bools:
+        verbose, and need_json
     It returns a 2-tuple.
     First value is multiplicative inverse of A mod B if it exists, else None.
-    Second value is a list of strings, the works,
-        if inverse of A mod B exists and verbose is True,
+    Second value is the works,
+        if inverse of A mod B exists and verbose is True.
         else None.
+        if need_json is True, the second value of the tuple is a json object.
+        else it is a tuple of strings.
 
 euclid
     This function takes two integers A and B, and verbose, a boolean.
@@ -22,15 +25,18 @@ euclid
 import json
 
 
-def find_mod_inverse(A: int, B: int, verbose: bool = False, need_json: bool = False) -> tuple:
+def find_mod_inverse(A: int, B: int,
+                     verbose: bool = False,
+                     need_json: bool = False) -> tuple:
     '''
     This function takes two positive integers A and B and a bool verbose
     It returns a 2-tuple.
     First value is multiplicative inverse of A mod B if it exists, else None.
-    Second value is a list of strings, the works,
+    Second value is the works,
         if inverse of A mod B exists and verbose is True,
         else None.
-
+        if need_json is True, the second value of the tuple is a json object.
+        else it is a tuple of strings.
     Params:
     A (int)
     B (int)
