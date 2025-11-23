@@ -19,8 +19,10 @@ euclid
         returns None
 '''
 
+import json
 
-def find_mod_inverse(A: int, B: int, verbose: bool = False) -> tuple:
+
+def find_mod_inverse(A: int, B: int, verbose: bool = False, need_json: bool = False) -> tuple:
     '''
     This function takes two positive integers A and B and a bool verbose
     It returns a 2-tuple.
@@ -40,7 +42,7 @@ def find_mod_inverse(A: int, B: int, verbose: bool = False) -> tuple:
     euclidean
 
     Examples:
-    >>> find_mod_inverse(5, 9, False)
+    >>> find_mod_inverse(5, 9, verbose=False, need_json=False)
     (2, None)
     >>> find_mod_inverse(50, 90, False)
     (None, None)
@@ -142,7 +144,10 @@ with {c2}.")
 
     multiplicative_inverse = c2
     if verbose:
-        return multiplicative_inverse, tuple(works)
+        if need_json:
+            works = json.dumps(works)
+            return multiplicative_inverse, works
+        return multiplicative_inverse, works
     return multiplicative_inverse, None
 
 
@@ -201,5 +206,9 @@ def euclidean(A: int, B: int, verbose: bool = False) -> tuple:
 
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    # import doctest
+    # doctest.testmod(verbose=True)
+    x, works = find_mod_inverse(197, 2001, True, True)
+    with open('works.json', 'w') as f:
+        f.write(works)
+    
