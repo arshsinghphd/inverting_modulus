@@ -206,9 +206,9 @@ def euclidean(A: int, B: int, verbose: bool = False) -> tuple:
 
 
 if __name__ == "__main__":
-    # import doctest
-    # doctest.testmod(verbose=True)
-    x, works = find_mod_inverse(197, 2001, True, True)
-    with open('works.json', 'w') as f:
-        f.write(works)
+    import doctest
+    doctest.testmod(verbose=True)
+    # x, works = find_mod_inverse(197, 2001, True, True)
+    # with open('works.json', 'w') as f:
+    #    f.write(works)
     
