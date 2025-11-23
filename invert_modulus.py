@@ -19,6 +19,7 @@ euclid
         returns None
 '''
 
+
 def find_mod_inverse(A: int, B: int, verbose: bool = False) -> tuple:
     '''
     This function takes two positive integers A and B and a bool verbose
@@ -64,7 +65,6 @@ def find_mod_inverse(A: int, B: int, verbose: bool = False) -> tuple:
 
     # Reverse
     if verbose:
-        #print("\nSecond Part: Reversing\n")
         works.append('')
         works.append('-'*80)
         works.append('Second Part: Reversing')
@@ -81,7 +81,7 @@ def find_mod_inverse(A: int, B: int, verbose: bool = False) -> tuple:
     counter += 1
     v1 = first_vars.pop()
     v2 = second_vars.pop()
-        
+
     if verbose:
         # printing
         works.append(f'Isolating {v2} from ({n})')
@@ -202,4 +202,4 @@ def euclidean(A: int, B: int, verbose: bool = False) -> tuple:
 
 if __name__ == "__main__":
     import doctest
-    doctest.testmod(verbose = True)
+    doctest.testmod(verbose=True)
