@@ -1,24 +1,17 @@
-'''INVERSE MODULES AND PRINT WORKS
+'''FIND THE MULTIPLICATIVE INVERSE OF A MOD B AND PRINT WORKS
 -------------------------------
 Functions and Their Description
 -------------------------------
+find_mod_inverse
+    This function takes two positive integers A and B and a bool verbose.
+    It returns a 2-tuple.
+    First value is multiplicative inverse of A mod B if it exists, else None.
+    Second value is a list of strings, the works,
+        if inverse of A mod B exists and verbose is True,
+        else None.
+
 euclid
-    This function takes two positive integers A and B.
-    If A mod B have a positive integer as a multiplicative inverse,
-        the function finds and returns it in a tuple where the first value is
-        the mutliplicative inverse of A mod B.
-    Else the first value of the tuple is None.
-
-    If verbose is True and A mod B has a multiplicative inverse,
-        the index 1 of returned tuple holds all the works to find it
-        as a tuple of strings.
-    If verbose is True and A mod B does not have a multiplicative inverse,
-        the index 1 of returned tuple is a tuple with a single line
-        that says so.
-    Else if verbose is False, the index 1 of the tuple returned is always None.
-
-reverse_euclid
-    This function takes two integers A and B.
+    This function takes two integers A and B, and verbose, a boolean.
     If GCD(A, B) 1,
         it returns a 5-tuple of three lists of ints, an integer, and
         a list of strings.
@@ -26,21 +19,14 @@ reverse_euclid
         returns None
 '''
 
-def reverse_euclid(A: int, B: int, verbose: bool = True) -> tuple:
+def find_mod_inverse(A: int, B: int, verbose: bool = False) -> tuple:
     '''
-    This function takes two positive integers A and B.
-    If A mod B have a positive integer as a multiplicative inverse,
-        the function finds and returns it in a tuple where the first value is
-        the mutliplicative inverse of A mod B.
-    Else the first value of the tuple is None.
-
-    If verbose is True and A mod B has a multiplicative inverse,
-        the index 1 of returned tuple holds all the works to find it
-        as a tuple of strings.
-    If verbose is True and A mod B does not have a multiplicative inverse,
-        the index 1 of returned tuple is a tuple with a single line
-        that says so.
-    Else if verbose is False, the index 1 of the tuple returned is always None.
+    This function takes two positive integers A and B and a bool verbose
+    It returns a 2-tuple.
+    First value is multiplicative inverse of A mod B if it exists, else None.
+    Second value is a list of strings, the works,
+        if inverse of A mod B exists and verbose is True,
+        else None.
 
     Params:
     A (int)
@@ -51,12 +37,27 @@ def reverse_euclid(A: int, B: int, verbose: bool = True) -> tuple:
 
     Calls:
     euclidean
+
+    Examples:
+    >>> find_mod_inverse(5, 9, False)
+    (2, None)
+    >>> find_mod_inverse(50, 90, False)
+    (None, None)
+    >>> find_mod_inverse(197, 2001, False)
+    (1097, None)
+    >>> find_mod_inverse(1970, 20010, False)
+    (None, None)
+    >>> find_mod_inverse(999979, 999983, False)
+    (749987, None)
+    >>> find_mod_inverse(961748941, 982451653, False)
+    (973852246, None)
     '''
 
     t = euclidean(A, B, True)
     if not t:
-        return (None,
-                (f"The multiplicative inverse for {A} mod {B} does not exist.",))
+        if not verbose:
+            return (None, None)
+        (None, (f"The multiplicative inverse for {A} mod {B} does not exist."))
     else:
         quotients, first_vars, second_vars, counter, works = t
         n = counter
@@ -78,11 +79,12 @@ def reverse_euclid(A: int, B: int, verbose: bool = True) -> tuple:
     c2 = c1 - c2 * q
     c1 = temp
     counter += 1
+    v1 = first_vars.pop()
+    v2 = second_vars.pop()
+        
     if verbose:
         # printing
         works.append(f'Isolating {v2} from ({n})')
-        v1 = first_vars.pop()
-        v2 = second_vars.pop()
         n -= 1
         equation_str = f'1 = {v1} * {c1} + {v2} * {c2}'
         counter_str = f'... ({counter})'
@@ -94,11 +96,11 @@ def reverse_euclid(A: int, B: int, verbose: bool = True) -> tuple:
         c2 = c1 - c2 * q
         c1 = temp
         counter += 1
+        v1 = first_vars.pop()
+        v2 = second_vars.pop()
         if verbose:
             works.append(f'Isolating {v2} from ({n}) and putting in \
 ({counter - 1}).')
-            v1 = first_vars.pop()
-            v2 = second_vars.pop()
             works.append(f'Rearrange to keep as a linear combination of \
 {v1} and {v2}:')
             n -= 1
@@ -127,7 +129,7 @@ with {c2}.")
             works.append('')
             works.append(f"Finally:")
             equation_str = f'1 = {B} * {c1} + {A} * {c2}'
-            
+
             counter_str = f'... ({counter})'
             works.append(f'{equation_str:<70}{counter_str:>10}')
             works.append('')
@@ -139,12 +141,15 @@ with {c2}.")
         works.append('-'*80)
 
     multiplicative_inverse = c2
-    return multiplicative_inverse, tuple(works)
+    if verbose:
+        return multiplicative_inverse, tuple(works)
+    return multiplicative_inverse, None
+
 
 def euclidean(A: int, B: int, verbose: bool = False) -> tuple:
     '''
-    This function takes two integers A and B.
-    If GCD(A, B) 1,
+    This function takes two integers A and B, and a bool verbose.
+    If GCD(A, B) is 1,
         it returns a 5-tuple of three lists of ints, an integer, and
         a list of strings.
     Else,
@@ -194,12 +199,7 @@ def euclidean(A: int, B: int, verbose: bool = False) -> tuple:
             return quotients, first_vars, second_vars, counter, works
     return None
 
-#x, printing_block = reverse_euclid(197, 2001, True)
-# large primes < 10**6: 999979, 999983
-# large primes < 10**9: 961748941, 982451653
-# https://t5k.org/lists/small/millions/
-x, printing_block = reverse_euclid(961748941, 982451653, True)
-print(x)
 
-for line in printing_block:
-    print(line)
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose = True)
