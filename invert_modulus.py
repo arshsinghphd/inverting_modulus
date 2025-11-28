@@ -66,7 +66,7 @@ def find_mod_inverse(A: int, B: int,
     if not t:
         if not verbose:
             return (None, None)
-        (None, (f"The multiplicative inverse for {A} mod {B} does not exist."))
+        return (None, (f"The multiplicative inverse for {A} mod {B} does not exist."))
     else:
         quotients, first_vars, second_vars, remainders, counter, works = t
         n = counter
@@ -218,7 +218,7 @@ def euclidean(A: int, B: int, verbose: bool = False) -> tuple:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
-    x, m = find_mod_inverse(197, 2001, True, False)
+    x, m = find_mod_inverse(12, 24, True, False)
     for line in m:
         print(line)
     # x, works = find_mod_inverse(197, 2001, True, True)
