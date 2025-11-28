@@ -3,31 +3,28 @@
 Functions and Their Description
 -------------------------------
 find_mod_inverse
-    This function takes two positive integers A and B and two bools:
-        verbose, and need_json
+    This function takes two positive integers A and B and a bools:
+        verbose
     It returns a 2-tuple.
     First value is multiplicative inverse of A mod B if it exists, else None.
-    Second value is the works,
+    Second value is the works, a list of preformatted text.
         if inverse of A mod B exists and verbose is True.
         else None.
-        if need_json is True, the second value of the tuple is a json object.
-        else it is a tuple of strings.
-
-euclid
+euclidean
     This function takes two integers A and B, and verbose, a boolean.
     If GCD(A, B) 1,
-        it returns a 5-tuple of three lists of ints, an integer, and
-        a list of strings.
+        it returns a 6-tuple of four lists of ints, an integer, and a list of
+        strings.
     Else,
         returns None
 '''
 
 import json
+import sys
 
 
 def find_mod_inverse(A: int, B: int,
-                     verbose: bool = False,
-                     need_json: bool = False) -> tuple:
+                     verbose: bool = False) -> tuple:
     '''
     This function takes two positive integers A and B and a bool verbose
     It returns a 2-tuple.
@@ -66,7 +63,8 @@ def find_mod_inverse(A: int, B: int,
     if not t:
         if not verbose:
             return (None, None)
-        return (None, (f"The multiplicative inverse for {A} mod {B} does not exist."))
+        return (None, (f"The multiplicative inverse for {A} mod {B} does not \
+exist."))
     else:
         quotients, first_vars, second_vars, remainders, counter, works = t
         n = counter
@@ -110,8 +108,8 @@ def find_mod_inverse(A: int, B: int,
         if verbose:
             works.append(f'Isolating {r} from ({n}) and putting in \
 ({counter - 1}).')
-            works.append(f'Rearrange to keep as a linear combination of \
-{v1} and {v2}:')
+            works.append(f'Rearrange to keep as a linear combination of {v1} \
+and {v2}:')
             n -= 1
             equation_str = f'1 = {v1} * {c1} + {v2} * {c2}'
             counter_str = f'... ({counter})'
@@ -151,9 +149,6 @@ with {c2}.")
 
     multiplicative_inverse = c2
     if verbose:
-        if need_json:
-            works = json.dumps(works)
-            return multiplicative_inverse, works
         return multiplicative_inverse, works
     return multiplicative_inverse, None
 
@@ -162,8 +157,8 @@ def euclidean(A: int, B: int, verbose: bool = False) -> tuple:
     '''
     This function takes two integers A and B, and a bool verbose.
     If GCD(A, B) is 1,
-        it returns a 6-tuple of four lists of ints, an integer, and
-        a list of strings.
+        it returns a 6-tuple of four lists of ints, an integer, and a list of
+        strings.
     Else,
         returns None
     '''
@@ -190,7 +185,7 @@ def euclidean(A: int, B: int, verbose: bool = False) -> tuple:
         pre.append('-'*80)
         pre.append('First Part: Euclidean Algorithm')
         pre.append('-'*80)
-        pre.append('')        
+        pre.append('')
         iter_counter = f'Iter {counter}:'
         max_len = max(len(str(greater)),
                       len(str(smaller*quotients[-1])),
@@ -208,7 +203,8 @@ def euclidean(A: int, B: int, verbose: bool = False) -> tuple:
         works.append('')
         works.append('Euclidean algorithm gives us the following equations.')
         works.append('')
-        equation_str = f'{greater:>{lhs_len}} = {smaller} * {quotients[-1]} + {mod}'
+        equation_str = f'{greater:>{lhs_len}} = {smaller} * {quotients[-1]} + \
+{mod}'
         counter_str = f'... ({counter})'
         works.append(f'{equation_str:<70}{counter_str:>10}')
     while mod > 0:
@@ -224,7 +220,8 @@ def euclidean(A: int, B: int, verbose: bool = False) -> tuple:
         remainders.append(mod)
         counter += 1
         if verbose:
-            equation_str = f'{greater:>{lhs_len}} = {smaller} * {quotients[-1]} + {mod}'
+            equation_str = f'{greater:>{lhs_len}} = {smaller} * {quotients[-1]} + \
+{mod}'
             counter_str = f'... ({counter})'
             iter_counter = f'Iter {counter}:'
             max_len = max(len(str(greater)),
@@ -243,14 +240,112 @@ def euclidean(A: int, B: int, verbose: bool = False) -> tuple:
         if mod == 1:    # early stop if we know GCD(A, B) is 1
             pre.extend(works)
             works = pre.copy()
-            return quotients, first_vars, second_vars, remainders, counter, works
+            return (quotients, first_vars, second_vars, remainders,
+                    counter, works)
     return None
+
+# ~~~~ #
+# main #
+# ~~~~ #
+
+
+def get_file_path(argv: tuple) -> str:
+    try:
+        i = argv.index('-f')
+        return argv[i + 1]
+    except:
+        A, B = argv[1], argv[2]
+        return f'works_invert_{A}_mod_{B}.txt'
+
+
+def search_for_file(argv: tuple) -> None:
+    if '-f' in argv:
+        return True
+    return False
+
+
+def search_for_works(argv: tuple) -> None:
+    if '-w' in argv or '--works' in argv:
+        return True
+    return False
+
+
+def get_numbers(argv: tuple) -> tuple:
+    try:
+
+        A = int(argv[1])
+        B = int(argv[2])
+        return (A, B)
+    except Exception as e:
+        return (None, e)
+
+
+def search_for_help(argv: tuple) -> None:
+    if '-h' in argv or '--help' in argv:
+        return True
+    return False
+
+
+def print_help() -> None:
+    print('Usage: python3 invert_modulo.py [-h] [int] [int] [-w] [-f file_path]')
+    print('')
+    print('To print this help statement and exit.')
+    print('    python3 invert_modulo.py -h')
+    print('')
+    print('For finding the multiplicative inverse of A mod B,')
+    print('    python3 invert_modulo.py A B')
+    print('By default, the invert of A mod B will be printed on the terminal.')
+    print('')
+    print('If you want to see the works:')
+    print('    python3 invert_modulo.py A B -w')
+    print('')
+    print('If you want the works returned as a text file instead:')
+    print('    python3 invert_modulo.py A B -w -f file_path.txt')
+
+
+def main(argv: tuple) -> None:
+    # help block
+    if search_for_help(argv):
+        print_help()
+        return
+
+    # validate numbers
+    if get_numbers(argv)[0]:
+        A, B = get_numbers(argv)
+    else:
+        print(get_numbers(argv)[1])
+        return
+
+    # process and print invert
+    x, m = find_mod_inverse(A, B, True)
+    if not x:
+        print(m)
+        return
+    print(x)
+
+    # works
+    works = search_for_works(argv)
+    if not works:
+        return
+
+    # file block
+    if not search_for_file(argv):
+        for line in m:
+            print(line)
+        return
+    file_path = get_file_path(argv)
+    print(f'writing works to {file_path}.')
+    with open(file_path, 'w') as f:
+        for line in m:
+            line = line + '\n'
+            f.write(line)
 
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
-    x, m = find_mod_inverse(197, 2001, True)
-    x, m = find_mod_inverse(961748941, 982451653, True)
-    for line in m:
-        print(line)
+    argv = tuple(sys.argv)
+    main(argv)
+##    import doctest
+##    doctest.testmod(verbose=True)
+##    x, m = find_mod_inverse(961748941, 982451653, True)
+##    for line in m:
+##        print(line)
