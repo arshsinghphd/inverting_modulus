@@ -1,0 +1,56 @@
+front end steps:
+
+	Clone the github repo: https://github.com/pem2k/cs_5002_final_front_end/
+
+	install npm cli tool from: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+
+	Navigate to front end directory
+
+	run "npm install" without quotes, dependencies will install from package.json
+
+	run npm start - the app will open your browser and will run on localhost:3000
+
+Backend Steps:
+
+	Clone the github repo: https://github.com/pem2k/cs5002_final_backend
+
+	in terminal, navigate to the project directory
+
+	create a virtual environment by typing the below in your console without quotes:
+		windows: "python -m venv venv"
+		Mac: "python3 -m venv venv"
+
+	Activate your virtual env by running the below without quotes:
+		windows:"venv/scripts/activate"
+		mac: "source venv/bin/activate
+
+	You are now in your virtual environment, run pip install -r requirements.txt
+
+	once complete:
+		Windows: venv/scripts/python.exe main.py
+		mac: python3 main.py
+	
+	The app may ask you y/n to see if you want to run it on another port since 3000 is taken, it should automatically select port:5000.
+
+	If it chooses a different port, no worries, navigate to the front end, in the front end directory, find src/components/inverseform.jsx. On line 24, swap the port in the 	url item in the axios request shown below:
+	
+	 axios({
+            method: "post",
+            url: "http://localhost:5000/",
+            data: userSubmission
+        }).then(response => {
+            console.log(response.data.works)
+
+            if (typeof response.data.works ==="string"){
+                setSteps([response.data.works])
+            }
+            else{
+                setSteps(response.data.works)
+            }
+            
+       }).catch(error=> console.error("error:", error))
+    }
+
+Note - python3 should work as is on mac, if it doesnt let me know, we likely have to swap the interpreter we're using or directly target a specific interpreter with our start command
+
+
